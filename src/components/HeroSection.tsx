@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
         className="text-2xl text-center mt-4 bg-white text-transparent bg-clip-text"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
+        transition={{ duration: 0.5 }}
       >
         For Developers
       </motion.span>
