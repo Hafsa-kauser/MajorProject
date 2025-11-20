@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Cta: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center px-8 py-24 mt-20 mb-20 overflow-hidden">
@@ -35,7 +35,7 @@ const Cta: React.FC = () => {
 
       {/* CTA Subtitle */}
       <motion.p
-        className="text-lg text-gray-300 text-center mt-4 max-w-2xl"
+        className="text-lg text-gray-300 text-center mt-4 max-w-2xl mb-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
@@ -44,6 +44,7 @@ const Cta: React.FC = () => {
       </motion.p>
 
       {/* CTA Button */}
+      <Link to="/Docs" >
       <motion.a
       
         className="mt-8 px-10 py-4 rounded-md border border-white 
@@ -55,7 +56,7 @@ const Cta: React.FC = () => {
       >
         Get Started
       </motion.a>
-
+</Link>
     </div>
   );
 };

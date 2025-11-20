@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-
+import { Link } from "react-router-dom";
 const HeroSection: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center mt-10 lg:mt-10 px-30 py-40 overflow-hidden">
@@ -45,14 +45,14 @@ const HeroSection: React.FC = () => {
 
       {/* Paragraph */}
       <motion.p
-        className="text-lg mt-6 text-center text-gray-300 max-w-3xl"
+        className="text-lg mt-6 text-center text-gray-300 max-w-3xl mb-6"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.6 }}
       >
        ML-powered unified caching abstraction layer that intelligently optimizes your Redis, Memcached, and other backends through real-time predictions.
      </motion.p>
-
+<Link to="/Docs" >
       {/* CTA Button */}
       <motion.a
         href="#"
@@ -63,6 +63,7 @@ const HeroSection: React.FC = () => {
       >
         Documentation
       </motion.a>
+      </Link>
       </div>
    
   );

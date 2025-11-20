@@ -4,6 +4,8 @@ import logo from "../assets/C.png";
 import { navItems } from "../constants";
 import type { NavItem } from "../constants";
 import { motion, LayoutGroup } from "framer-motion";
+import { Link } from "react-router-dom";
+
 
 const Navbar: React.FC = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -18,9 +20,10 @@ const Navbar: React.FC = () => {
       <div className="container px-4 mx-auto relative ">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center h-full">
-            <img className="h-full max-h-12 w-auto mr-2" src={logo} alt="logo" />
-            <span className="text-xl tracking-tight font-bold hover:text-[#47085a] text-white">Cachetron</span>
+          <div className="flex items-center h-full"><Link to="/">
+            <img className="h-full max-h-12 w-auto mr-2" src={logo} alt="logo" /></Link>
+            <Link to="/">
+            <span className="text-xl tracking-tight font-bold hover:text-[#47085a] text-white">Cachetron</span></Link>
           </div>
 
           {/* Desktop menu with Framer Motion hover highlight */}
@@ -36,7 +39,7 @@ const Navbar: React.FC = () => {
   }}
   transition={{ type: "spring", stiffness: 300 }}
 >
-  <a href={item.href}>{item.label}</a>
+  <Link to={item.href}>{item.label}</Link>
 </motion.li>
 ))}
             </LayoutGroup>
@@ -44,9 +47,13 @@ const Navbar: React.FC = () => {
 
           {/* Buttons */}
           <div className="hidden lg:flex justify-center space-x-4 items-center">
-            <a href="#" className="py-2 px-3 border rounded-md text-white hover:bg-[#47085a]">
-              Get Started
-            </a>
+            <Link 
+  to="/Docs" 
+  className="py-2 px-3 border rounded-md text-white hover:bg-[#47085a]"
+>
+  Get Started
+</Link>
+
           
           </div>
 
@@ -65,10 +72,10 @@ const Navbar: React.FC = () => {
           <ul>
             {navItems.map((item: NavItem) => (
               <li key={item.label} className="py-4">
-                <a href={item.href} className="text-white hover:text-gray-400">
-                  {item.label}
-                </a>
-              </li>
+  <Link to={item.href} className="text-white hover:text-gray-400">
+    {item.label}
+  </Link>
+</li>
             ))}
           </ul>
         </div>

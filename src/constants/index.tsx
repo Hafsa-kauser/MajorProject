@@ -9,7 +9,7 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { label: "Features", href: "#f" },
-  { label: "Docs", href: "#d" },
+  { label: "Docs", href: "/Docs" },
   { label: "GitHub", href: "#g" },
  
 ];
