@@ -35,15 +35,15 @@ const Docs: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div>
       <div className="max-w-7xl mx-auto px-4 py-8 lg:py-12 flex gap-8">
         
         {/* Sidebar */}
         <aside className="hidden xl:block w-72 h-[80vh] sticky top-20 self-start">
-          <div className="bg-white rounded-lg shadow p-5 overflow-y-auto h-full">
+          <div className="bg-grey-700 rounded-lg shadow p-5 overflow-y-auto h-full">
             <h2 className="text-2xl font-bold text-purple-700 mb-4">Documentation</h2>
 
-            <nav className="text-sm text-gray-700 space-y-4">
+            <nav className="text-sm text-white space-y-4">
               <div>
                 <div className="font-semibold text-purple-600">Introduction</div>
                 <ul className="ml-3 mt-2 space-y-1">
@@ -117,7 +117,7 @@ const Docs: React.FC = () => {
               Cachetron — Documentation
             </motion.h1>
 
-            <motion.p variants={sectionAnim} className="mt-3 text-gray-600 max-w-3xl">
+            <motion.p variants={sectionAnim} className="mt-3 text-white max-w-3xl">
               A pluggable caching abstraction layer with ML-powered TTL prediction.
             </motion.p>
           </motion.header>
@@ -128,7 +128,7 @@ const Docs: React.FC = () => {
             <motion.section id="overview" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h2 className="text-2xl font-bold text-purple-700 mb-3">Introduction — Overview</h2>
 
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-white leading-relaxed">
                 Modern applications depend heavily on caching to deliver fast, scalable, and efficient performance. However, integrating directly with a specific caching technology—such as Redis or Memcached—often results in tight coupling, making it difficult to switch providers or extend the system over time. Developers also face the challenge of manually setting TTL (Time-To-Live) values, which can lead to poor cache utilization, wasted memory, and inconsistent performance across the application.
 This tool addresses these challenges by introducing a pluggable caching abstraction layer combined with intelligent, machine-learning-based TTL prediction. It provides a unified and flexible approach to caching that adapts to application behavior, reduces manual effort, and improves overall system efficiency.
 
@@ -138,7 +138,7 @@ This tool addresses these challenges by introducing a pluggable caching abstract
             <motion.section id="key-features" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h3 className="text-xl font-semibold text-purple-700 mb-2">Key Features</h3>
 
-              <ol className="list-decimal ml-6 text-gray-700 space-y-1">
+              <ol className="list-decimal ml-6 text-white space-y-1">
                 <li>Pluggable Caching Abstraction Layer</li>
                 <li>Decoupled Cache Architecture</li>
                 <li>ML-Powered TTL Prediction</li>
@@ -154,7 +154,7 @@ This tool addresses these challenges by introducing a pluggable caching abstract
 
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-gray-800">Install Cachetron</h4>
+                  <h4 className="font-semibold text-white">Install Cachetron</h4>
 
                   <div className="bg-gray-900 text-white p-4 rounded-md relative mt-2">
                     <pre id="cli-install" className="whitespace-pre-wrap">npm install -g cachetron</pre>
@@ -165,13 +165,13 @@ This tool addresses these challenges by introducing a pluggable caching abstract
                       {copiedId === "cli-install" ? "Copied" : "Copy"}
                     </button>
                   </div>
-<p className="text-sm text-gray-500 mt-2"> The <code>-g</code> flag installs Cachetron globally so you can run its commands from anywhere. You may also install locally with <code>npm install cachetron</code>. </p>
+<p className="text-sm text-white mt-2"> The <code>-g</code> flag installs Cachetron globally so you can run its commands from anywhere. You may also install locally with <code>npm install cachetron</code>. </p>
 
                   
                 </div>
 
                 <div id="init" className="mt-4">
-                  <h4 className="font-semibold text-gray-800">Initialize Cachetron</h4>
+                  <h4 className="font-semibold text-white">Initialize Cachetron</h4>
 
                   <div className="bg-gray-900 text-white p-4 rounded-md relative mt-2">
                     <pre id="cli-init" className="whitespace-pre-wrap">cachetron init</pre>
@@ -182,7 +182,7 @@ This tool addresses these challenges by introducing a pluggable caching abstract
                       {copiedId === "cli-init" ? "Copied" : "Copy"}
                     </button>
                   </div>
-<p className="text-sm text-gray-500 mt-2"> Runs the CLI initializer which creates a <code>cachetron.json</code> configuration file for your project. </p>
+<p className="text-sm text-white mt-2"> Runs the CLI initializer which creates a <code>cachetron.json</code> configuration file for your project. </p>
 
                   
                 </div>
@@ -192,7 +192,7 @@ This tool addresses these challenges by introducing a pluggable caching abstract
             {/* Auto-generated config */}
             <motion.section id="auto-config" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h2 className="text-2xl font-bold text-purple-700 mb-3">Auto-Generated Configuration File</h2>
-              <p className="text-gray-700 mb-3"> After running <code>cachetron init</code>, Cachetron creates a default <code>cachetron.json</code>. Example for Memcached: </p>
+              <p className="text-white mb-3"> After running <code>cachetron init</code>, Cachetron creates a default <code>cachetron.json</code>. Example for Memcached: </p>
 
 
               <div className="bg-gray-900 text-white p-4 rounded-md relative">
@@ -211,14 +211,14 @@ This tool addresses these challenges by introducing a pluggable caching abstract
                   {copiedId === "memcached-config" ? "Copied" : "Copy"}
                 </button>
               </div>
-              <div className="mt-4 text-gray-700"> <p className="mb-2"><strong>Switching backend:</strong> change the <code>type</code> field to  <code>"redis"</code>, or <code>"memcache"</code>.</p> <p className="mb-2"><strong>Manual TTL:</strong> set <code>"autoTTL": false</code> if you prefer to manage TTLs yourself.</p> </div>
+              <div className="mt-4 text-white"> <p className="mb-2"><strong>Switching backend:</strong> change the <code>type</code> field to  <code>"redis"</code>, or <code>"memcache"</code>.</p> <p className="mb-2"><strong>Manual TTL:</strong> set <code>"autoTTL": false</code> if you prefer to manage TTLs yourself.</p> </div>
 
             </motion.section>
 
             {/* Switch backend */}
             <motion.section id="switch-backend" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h3 className="text-xl font-semibold text-purple-700 mb-2">Switching Cache Backend</h3>
-<p className="text-gray-700"> To switch backends, update <code>cachetron.json</code>: </p>
+<p className="text-white"> To switch backends, update <code>cachetron.json</code>: </p>
 
               <div className="bg-gray-900 text-white p-4 rounded-md relative mt-3">
                 <pre id="backend-types" className="whitespace-pre-wrap">
@@ -241,7 +241,7 @@ This tool addresses these challenges by introducing a pluggable caching abstract
             {/* Manual TTL */}
             <motion.section id="manual-ttl" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h3 className="text-xl font-semibold text-purple-700 mb-2">Manual TTL (Disable AutoTTL)</h3>
-<p className="text-gray-700 mb-3">If you prefer manual TTL control, set <code>autoTTL</code> to <code>false</code>:</p>
+<p className="text-white mb-3">If you prefer manual TTL control, set <code>autoTTL</code> to <code>false</code>:</p>
               <div className="bg-gray-900 text-white p-4 rounded-md relative">
                 <pre id="manual-ttl-block" className="whitespace-pre-wrap">
 {`{
@@ -258,14 +258,14 @@ This tool addresses these challenges by introducing a pluggable caching abstract
                   {copiedId === "manual-ttl-block" ? "Copied" : "Copy"}
                 </button>
               </div>
-              <p className="text-gray-700 mt-4"> When <code>autoTTL</code> is disabled, set TTL in code: <code>cache.set("user1", data, 120)</code>. </p>
+              <p className="text-white mt-4"> When <code>autoTTL</code> is disabled, set TTL in code: <code>cache.set("user1", data, 120)</code>. </p>
 
             </motion.section>
 
             {/* Getting Started */}
             <motion.section id="import-create" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h2 className="text-2xl font-bold text-purple-700 mb-3">Getting Started</h2>
-<p className="text-gray-700 mb-3">Import Cachetron and create a proxy-backed instance (example):</p>
+<p className="text-white mb-3">Import Cachetron and create a proxy-backed instance (example):</p>
               <div className="bg-gray-900 text-white p-4 rounded-md relative">
                 <pre id="import-create-code" className="whitespace-pre-wrap">
 {`import { cachetron, updateCacheConfig } from "cachetron";
@@ -298,7 +298,7 @@ export const cache = new Proxy(
 
                 {/* Set */}
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">Set</h3>
+                  <h3 className="font-semibold text-white mb-2">Set</h3>
 
                   <div className="bg-gray-900 text-white p-4 rounded-md relative">
                     <pre id="op-set" className="whitespace-pre-wrap">await cache.set("key", value, ttl);</pre>
@@ -314,7 +314,7 @@ export const cache = new Proxy(
 
                 {/* Get */}
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">Get</h3>
+                  <h3 className="font-semibold text-white mb-2">Get</h3>
 
                   <div className="bg-gray-900 text-white p-4 rounded-md relative">
                     <pre id="op-get" className="whitespace-pre-wrap">const data = await cache.get("key");</pre>
@@ -330,7 +330,7 @@ export const cache = new Proxy(
 
                 {/* Delete */}
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">Delete</h3>
+                  <h3 className="font-semibold text-white mb-2">Delete</h3>
 
                   <div className="bg-gray-900 text-white p-4 rounded-md relative">
                     <pre id="op-delete" className="whitespace-pre-wrap">await cache.delete("key");</pre>
@@ -346,13 +346,13 @@ export const cache = new Proxy(
 
                 {/* Clear / Keys / HasKey */}
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">Clear / Keys / HasKey</h3>
+                  <h3 className="font-semibold text-white mb-3">Clear / Keys / HasKey</h3>
 
-                  <div className="bg-gray-900 text-white p-4 rounded-md relative space-y-2">
+                  <div className="bg-gray-900 text-white p-4 rounded-md relative space-y-2 pr-28">
 
                     <pre id="op-clear" className="whitespace-pre-wrap">await cache.clear();</pre>
-                    <pre id="op-keys" className="whitespace-pre-wrap">const allKeys = await cache.keys();</pre>
-                    <pre id="op-haskey" className="whitespace-pre-wrap">const exists = await cache.hasKey("key");</pre>
+                    <pre id="op-keys" className="whitespace-pre-wrap ">const allKeys = await cache.keys();</pre>
+                    <pre id="op-haskey" className="whitespace-pre-wrap ">const exists = await cache.hasKey("key");</pre>
 
                     <div className="absolute top-2 right-2 flex flex-col gap-2">
                       <button
@@ -386,11 +386,11 @@ export const cache = new Proxy(
             <motion.section id="metrics" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h2 className="text-2xl font-bold text-purple-700 mb-3">After running node index.js</h2>
 
-              <p className="text-gray-700 mb-3">
+              <p className="text-white mb-3">
                 Cachetron automatically creates a <code>metrics.json</code> file when your server runs. This file is used internally and you do not need to edit it.
 
               </p>
-              <div className="bg-gray-100 border border-gray-200 p-4 rounded"> <p className="font-semibold text-gray-800 mb-2">What it contains</p> <ul className="list-disc ml-6 text-gray-700 space-y-1"> <li>time — timestamp of metric</li> <li>hitRatio / missRatio — current interval</li> <li>hitRatioLifetime / missRatioLifetime — lifetime values</li> <li>cacheSize — memory used</li> <li>dataChangeRate — how often data changes</li> <li>keyCount — number of cached keys</li> <li>avgKeySize — average entry size</li> </ul> </div>
+              <div className="  bg-gray-900 border border-gray-200 p-4 rounded"> <p className="font-semibold text-white mb-2">What it contains</p> <ul className="list-disc ml-6 text-white space-y-1"> <li>time — timestamp of metric</li> <li>hitRatio / missRatio — current interval</li> <li>hitRatioLifetime / missRatioLifetime — lifetime values</li> <li>cacheSize — memory used</li> <li>dataChangeRate — how often data changes</li> <li>keyCount — number of cached keys</li> <li>avgKeySize — average entry size</li> </ul> </div>
 
             </motion.section>
 
@@ -398,7 +398,7 @@ export const cache = new Proxy(
             <motion.section id="ml" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h3 className="text-xl font-semibold text-purple-700 mb-2">How ML Uses metrics.json</h3>
 
-              <p className="text-gray-700">
+              <p className="text-white">
                If <code>"autoTTL": true</code>, Cachetron's ML model reads <code>metrics.json</code> to learn usage patterns (access frequency, data-change rate, hit/miss ratios, memory usage) and predicts an optimal TTL for each key. This happens automatically — you don't need to set TTL manually.
 
               </p>
