@@ -52,18 +52,24 @@ const HeroSection: React.FC = () => {
       >
        ML-powered unified caching abstraction layer that intelligently optimizes your Redis, Memcached, and other backends through real-time predictions.
      </motion.p>
-<Link to="/Docs" >
-      {/* CTA Button */}
-      <motion.a
-        href="#"
-        className="mt-8 px-8 py-4  border rounded-md border-white  text-white hover:bg-[#47085a]  font-semibold shadow-lg"
-        whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(139, 92, 246, 0.7)" }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.3 }}
-      >
-        Documentation
-      </motion.a>
-      </Link>
+<motion.div
+
+       
+         className="mt-8 px-10 py-4 rounded-md border border-white 
+         text-white font-semibold shadow-lg 
+         hover:bg-[#47085a] backdrop-blur-xl"
+         whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(139,92,246,0.7)" }}
+         whileTap={{ scale: 0.95 }}
+         transition={{ duration: 0.3 }}
+       >
+
+  <Link
+    to="/Docs">
+   
+    Documentation
+  </Link>
+</motion.div>
+
       </div>
    
   );
