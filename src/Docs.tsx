@@ -83,6 +83,14 @@ const Docs: React.FC = () => {
                   <li><a href="#core-ops" className="hover:text-purple-700">Clear / Keys / HasKey</a></li>
                 </ul>
               </div>
+              <div>
+                <div className="font-semibold text-purple-600">Cache Admin Config Route</div>
+                <ul className="ml-3 mt-2 space-y-1">
+                  <li><a href="#admin" className="hover:text-purple-700">Cache Admin Config Route</a></li>
+                  
+                </ul>
+              </div>
+
 
               <div>
                 <div className="font-semibold text-purple-600">Metrics & ML</div>
@@ -103,6 +111,12 @@ const Docs: React.FC = () => {
                 <div className="font-semibold text-purple-600">CLI</div>
                 <ul className="ml-3 mt-2 space-y-1">
                   <li><a href="#cli" className="hover:text-purple-700">CLI Commands</a></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-purple-600">Demo</div>
+                <ul className="ml-3 mt-2 space-y-1">
+                  <li><a href="#demo" className="hover:text-purple-700">Demo</a></li>
                 </ul>
               </div>
 
@@ -381,6 +395,50 @@ export const cache = new Proxy(
 
               </div>
             </motion.section>
+            {/* Cache Admin Config Route */}
+<motion.section
+  id="admin"
+  variants={sectionAnim}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="mt-12"
+>
+  <h2 className="text-2xl font-bold text-purple-700 mb-3">
+    Cache Admin Config Route
+  </h2>
+
+  <p className="text-white mb-4">
+    This route allows you to update Cachetron configuration at runtime.  
+    You can modify cache providers, connection URLs and TTLs.
+  </p>
+
+  <div className="bg-gray-900 text-white p-4 rounded-md relative">
+    <pre id="cache-admin-config-code" className="whitespace-pre-wrap text-sm">
+{`app.post("/cache/admin/config", (req, res) => {
+  try {
+    updateCacheConfig(req.body);
+    res.send("updated config");
+  } catch (error) {
+    console.log("error", error);
+  }
+});`}
+    </pre>
+
+    <button
+      onClick={() =>
+        handleCopy(
+          "cache-admin-config-code",
+          document.getElementById("cache-admin-config-code")?.innerText ?? ""
+        )
+      }
+      className="absolute top-2 right-2 bg-purple-600 hover:bg-purple-700 text-white text-sm px-3 py-1 rounded"
+    >
+      {copiedId === "cache-admin-config-code" ? "Copied" : "Copy"}
+    </button>
+  </div>
+</motion.section>
+
 
             {/* Metrics */}
             <motion.section id="metrics" variants={sectionAnim} initial="hidden" whileInView="show" viewport={{ once: true }}>
@@ -461,6 +519,85 @@ export const cache = new Proxy(
 
               </div>
             </motion.section>
+            {/* Demo */}
+<motion.section
+  id="demo"
+  variants={sectionAnim}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  className="mt-12"
+>
+  <h2 className="text-2xl font-bold text-purple-700 mb-3">
+   Cachetron Server Demo
+  </h2>
+
+  <p className="text-white mb-4">
+    A minimal Express server demonstrating how to use Cachetron with dynamic
+    configuration updates and simple get/set operations.
+  </p>
+
+  <div className="bg-gray-900 text-white p-4 rounded-md relative">
+    <pre id="express-demo-code" className="whitespace-pre-wrap text-sm">
+{`import express, { json } from "express";
+import cors from "cors";
+import { cachetron, updateCacheConfig } from "cachetron";
+
+const app = express();
+app.use(cors());
+app.use(json());
+
+export const cache = new Proxy(
+  {},
+  {
+    get(_, prop) {
+      const instance = cachetron();
+      return instance[prop].bind(instance);
+    },
+  }
+);
+
+app.get("/", async (req, res) => {
+  res.send("This is a simple cache server using cachetron");
+});
+
+app.post("/cache/admin/config", (req, res) => {
+  try {
+    updateCacheConfig(req.body);
+    res.send("updated config");
+  } catch (error) {
+    console.log("error", error);
+  }
+});
+
+app.post("/set", async (req, res) => {
+  // ...
+});
+
+app.get("/get", async (req, res) => {
+  // ...
+});
+
+const PORT = 3001;
+app.listen(PORT, () =>
+  console.log(\`Server running at http://localhost:\${PORT}\`)
+);`}
+    </pre>
+
+    <button
+      onClick={() =>
+        handleCopy(
+          "express-demo-code",
+          document.getElementById("express-demo-code")?.innerText ?? ""
+        )
+      }
+      className="absolute top-2 right-2 bg-purple-600 hover:bg-purple-700 text-white text-sm px-3 py-1 rounded"
+    >
+      {copiedId === "express-demo-code" ? "Copied" : "Copy"}
+    </button>
+  </div>
+</motion.section>
+
 
           </article>
         </main>
